@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/webp" href="avatar-favicon.webp">
   <title>Timeless9b</title>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E8H18Q96R"></script>
@@ -113,6 +114,7 @@
       transition: transform 0.3s ease, opacity 0.3s;
       border-radius: 8px;
       overflow: hidden; /* Ensures image corners are rounded if image itself isn't */
+      position: relative; /* Added for positioning child elements */
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
@@ -129,8 +131,29 @@
       object-fit: cover; /* Cover the area, cropping if necessary */
     }
 
-    .music-item span {
-      display: block; /* For potential future text below image */
+    .music-info {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      /* background-color and color will be set via inline styles */
+      pointer-events: none; /* Ensures the link is clickable */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .music-info .play-icon {
+      width: 0.9em;
+      height: 0.9em;
+      margin-right: 6px;
+      fill: currentColor; /* Icon color inherits from .music-info's text color */
+    }
+
+    /* Removed old .music-item span rule as it's replaced by .music-info */
     }
 
     footer {
@@ -210,19 +233,31 @@
     <div class="music-grid">
       <a href="https://artists.landr.com/056870967684" class="music-item" target="_blank">
         <img src="illusion.webp" alt="Illusion">
-        <span>Illusion</span>
+        <span class="music-info" style="background-color: #87CEEB; color: #000000;">
+          <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5V19L19 12L8 5Z"/></svg>
+          Illusion
+        </span>
       </a>
       <a href="https://artists.landr.com/990591043879" class="music-item" target="_blank">
         <img src="night.webp" alt="Night">
-        <span>Night</span>
+        <span class="music-info" style="background-color: #08241f; color: #FFFFFF;">
+          <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5V19L19 12L8 5Z"/></svg>
+          Forgotten Night
+        </span>
       </a>
       <a href="https://artists.landr.com/990591001978" class="music-item" target="_blank">
-        <img src="rain.webp" alt="Rain">
-        <span>Rain</span>
+        <img src="rain.webp" alt="Rainy Steps">
+        <span class="music-info" style="background-color: #9fc6b4; color: #000000;">
+          <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5V19L19 12L8 5Z"/></svg>
+          Rainy Steps
+        </span>
       </a>
       <a href="https://artists.landr.com/990591222366" class="music-item" target="_blank">
         <img src="rebirth.webp" alt="Rebirth">
-        <span>Rebirth</span>
+        <span class="music-info" style="background-color: #a4a5e9; color: #000000;">
+          <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5V19L19 12L8 5Z"/></svg>
+          Rebirth
+        </span>
       </a>
     </div>
   </div>
